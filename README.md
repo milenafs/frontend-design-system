@@ -6,9 +6,8 @@ A production-ready React component library and design system built with TypeScri
 
 The Frontend Design System is a monorepo containing:
 
-- **UI Package** (`packages/ui`) - Production-ready React components with TypeScript support
-- **Documentation Site** (`apps/docs`) - Docusaurus-powered documentation with live component examples
-- **Storybook** (`apps/storybook`) - Interactive component playground with auto-generated documentation
+- **UI Package** (`packages/ui`) - Production-ready React components with TypeScript support, Storybook stories, and design tokens
+- **Documentation Site** (`apps/docs`) - Docusaurus-powered documentation with live component examples and integration guides
 - **Design Tokens** - Comprehensive CSS custom properties for colors, typography, spacing, and more
 
 ### Key Features
@@ -46,38 +45,42 @@ The Frontend Design System is a monorepo containing:
 ```
 design-system/
 ├── packages/
-│   └── ui/                    # Main component library
+│   └── ui/                         # Component library + Storybook
 │       ├── src/
-│       │   ├── components/    # Button, Input, Checkbox, Stack
-│       │   ├── tokens.css     # Design tokens
-│       │   ├── components.css # Component styles
-│       │   └── index.ts       # Package exports
-│       ├── dist/              # Built output
-│       ├── vite.config.ts     # Build configuration
+│       │   ├── components/         # Button, Input, Checkbox, Stack
+│       │   │   ├── Button/
+│       │   │   ├── Input/
+│       │   │   ├── Checkbox/
+│       │   │   └── Stack/
+│       │   ├── stories/            # Component stories
+│       │   │   ├── Button.stories.ts
+│       │   │   ├── Input.stories.ts
+│       │   │   ├── Checkbox.stories.ts
+│       │   │   └── Stack.stories.tsx
+│       │   ├── tokens.css          # Design tokens
+│       │   ├── components.css      # Component styles
+│       │   └── index.ts            # Package exports
+│       ├── .storybook/             # Storybook configuration
+│       │   ├── main.ts             # Config
+│       │   └── preview.tsx         # Global setup
+│       ├── dist/                   # Built output
+│       ├── vite.config.ts          # Vite build config
 │       └── package.json
 │
 ├── apps/
-│   ├── docs/                  # Docusaurus documentation site
-│   │   ├── docs/
-│   │   │   ├── components/    # Component documentation
-│   │   │   ├── foundations/   # Design tokens, typography, colors
-│   │   │   └── getting-started/
-│   │   ├── src/
-│   │   │   └── components/ComponentPreview/  # Live demo component
-│   │   ├── docusaurus.config.ts
-│   │   └── package.json
-│   │
-│   └── storybook/             # Storybook component showcase
-│       ├── .storybook/
-│       │   ├── main.ts        # Storybook config
-│       │   └── preview.tsx    # Global preview setup
-│       ├── src/stories/       # Component stories
-│       ├── storybook-static/  # Built output
+│   └── docs/                       # Docusaurus documentation site
+│       ├── docs/
+│       │   ├── components/         # Component documentation
+│       │   ├── foundations/        # Design tokens, typography, colors
+│       │   └── getting-started/    # Integration guides
+│       ├── src/
+│       │   └── components/ComponentPreview/  # Live demo component
+│       ├── docusaurus.config.ts
 │       └── package.json
 │
-├── turbo.json                 # Turborepo configuration
-├── package.json               # Root monorepo setup
-└── README.md                  # This file
+├── turbo.json                      # Turborepo configuration
+├── package.json                    # Root monorepo setup
+└── README.md                       # This file
 ```
 
 ---
@@ -145,16 +148,17 @@ Features:
 #### Start Storybook
 
 ```bash
-npm run dev --workspace=apps/storybook
+npm run storybook --workspace=packages/ui
 ```
 
 Opens Storybook at **http://localhost:6006**
 
 Features:
-- Interactive component showcase
+- Interactive component showcase with live stories
 - Auto-generated component documentation
 - Interactive controls for props
 - Accessibility testing addon
+- Stories colocated with components
 
 ### Build Commands
 
@@ -181,10 +185,10 @@ Outputs to `packages/ui/dist/`
 #### Build Storybook
 
 ```bash
-npm run build --workspace=apps/storybook
+npm run build-storybook --workspace=packages/ui
 ```
 
-Outputs to `apps/storybook/storybook-static/`
+Outputs to `packages/ui/storybook-static/`
 Generates a static HTML site ready for deployment.
 
 #### Build Docs Site
@@ -552,13 +556,14 @@ Run `npm run dev --workspace=apps/docs` and visit http://localhost:3000
 
 ### 🎨 Storybook
 
-Run `npm run dev --workspace=apps/storybook` and visit http://localhost:6006
+Run `npm run storybook --workspace=packages/ui` and visit http://localhost:6006
 
 **Includes:**
-- Interactive component playground
+- Interactive component playground with live stories
 - Auto-generated component API documentation
 - Interactive prop controls
 - Accessibility testing
+- Stories colocated with components in `packages/ui/src/stories/`
 
 ### 📝 TypeScript IntelliSense
 
@@ -713,9 +718,10 @@ For issues, questions, or contributions:
 | Command | Purpose | Port |
 |---------|---------|------|
 | `npm run dev --workspace=apps/docs` | Start docs site | 3000 |
-| `npm run dev --workspace=apps/storybook` | Start Storybook | 6006 |
+| `npm run storybook --workspace=packages/ui` | Start Storybook | 6006 |
 | `npm run build` | Build all packages | — |
 | `npm run build --workspace=packages/ui` | Build UI package | — |
+| `npm run build-storybook --workspace=packages/ui` | Build Storybook | — |
 | `npm run typecheck` | Check types | — |
 | `npm run lint` | Run linter | — |
 | `npm run test` | Run tests | — |
