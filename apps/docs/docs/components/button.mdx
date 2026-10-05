@@ -1,0 +1,109 @@
+---
+slug: /components/button
+---
+
+import ComponentPreview from "@site/src/components/ComponentPreview";
+import { Button } from "@frontend-design-system/ui";
+
+# Button
+
+A semantic button component built on native HTML `<button>` elements.
+
+## Overview
+
+The Button component is a wrapper around the native HTML `<button>` element with support for variants and all standard button attributes.
+
+The component is **unstyled** by default, giving you full control over appearance while maintaining semantic structure and accessibility.
+
+## Usage
+
+```tsx
+import { Button } from "@frontend-design-system/ui";
+
+<Button>Default</Button>
+<Button variant="secondary">Secondary</Button>
+```
+
+## Examples
+
+### Primary variant
+
+<ComponentPreview code='<Button variant="primary">Primary Button</Button>'>
+  <Button variant="primary">Primary Button</Button>
+</ComponentPreview>
+
+### Secondary variant
+
+<ComponentPreview code='<Button variant="secondary">Secondary Button</Button>'>
+  <Button variant="secondary">Secondary Button</Button>
+</ComponentPreview>
+
+### With click handler
+
+<ComponentPreview code={`<Button onClick={() => alert('Clicked!')}>
+  Click me
+</Button>`}>
+  <Button onClick={() => alert('Clicked!')}>Click me</Button>
+</ComponentPreview>
+
+### Disabled state
+
+<ComponentPreview code='<Button disabled>Disabled Button</Button>'>
+  <Button disabled>Disabled Button</Button>
+</ComponentPreview>
+
+## Props
+
+The Button component accepts all standard HTML `<button>` attributes plus:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"primary" \| "secondary"` | `"primary"` | Visual style variant |
+| `children` | `ReactNode` | — | Button content |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | All native button attributes (onClick, disabled, type, etc.) |
+
+## Accessibility
+
+The Button component maintains full semantic accessibility:
+
+- Built on native `<button>` elements with automatic keyboard support
+- Fully keyboard navigable (Tab, Enter, Space)
+- Announces correctly to screen readers as a button
+- Respects focus styles and tab order
+- No `type` default — when used in forms without explicit `type`, defaults to `"submit"` per HTML spec
+
+## Styling
+
+The Button component is **unstyled by default**. It renders a plain `<button>` element with a `data-variant` attribute:
+
+```html
+<button data-variant="primary">Button</button>
+```
+
+You can style the button using:
+
+- **CSS** — target `button[data-variant="primary"]`
+- **CSS-in-JS** — style based on the variant prop
+- **Component wrapper** — create a styled wrapper around Button
+- **Tailwind** — use utility classes if Tailwind is available
+
+### Example with CSS
+
+```css
+button[data-variant="primary"] {
+  background-color: #0066cc;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[data-variant="primary"]:hover {
+  background-color: #0052a3;
+}
+```
+
+---
+
+**Want to see more components?** The design system is actively growing. Check back soon!

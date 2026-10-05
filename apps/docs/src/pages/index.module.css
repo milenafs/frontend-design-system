@@ -20,4 +20,70 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.showcase {
+  padding: 4rem 0;
+  background: var(--ifm-background-surface-secondary);
+}
+
+@media screen and (max-width: 996px) {
+  .showcase {
+    padding: 2rem 0;
+  }
+}
+
+.showcaseTitle {
+  margin-bottom: 1rem;
+}
+
+.showcaseDescription {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.componentDemo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background: var(--ifm-background-color);
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.componentDemo button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  transition: all 200ms ease;
+}
+
+.componentDemo button[data-variant="primary"] {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.componentDemo button[data-variant="secondary"] {
+  border-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-900);
+  background: transparent;
+}
+
+.componentDemo button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.componentDemo button:active {
+  transform: translateY(0);
 }

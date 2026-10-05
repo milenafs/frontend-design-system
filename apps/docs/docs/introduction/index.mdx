@@ -1,0 +1,80 @@
+---
+slug: /introduction
+---
+
+# Introduction
+
+Welcome to the Frontend Design System documentation.
+
+## What is this?
+
+The Frontend Design System is a collection of reusable React components and design foundations for building consistent, accessible interfaces.
+
+## Why it exists
+
+This design system serves as:
+
+- **A shared component library** across your frontend applications
+- **A single source of truth** for UI patterns and component behavior
+- **A reference implementation** of React and TypeScript best practices
+- **A scalable foundation** for evolving your design patterns
+
+## How the project is organized
+
+This is a monorepo project with the following structure:
+
+```
+design-system/
+├── apps/
+│   └── docs/              ← You are here
+│       └── Documentation website built with Docusaurus
+│
+├── packages/
+│   └── ui/                ← React component library
+│       └── Built with React, TypeScript, and Vite
+│
+├── package.json           ← Root workspace configuration
+└── turbo.json             ← Turborepo task orchestration
+```
+
+## The UI Package
+
+The `@frontend-design-system/ui` package exports all reusable components. It is built once and distributed as production-ready JavaScript and TypeScript types.
+
+### Key facts
+
+- **Type-safe**: Full TypeScript support with generated `.d.ts` files
+- **Framework-agnostic exports**: ESM format for modern bundlers
+- **Peer dependencies**: Requires React 18+ and React DOM
+
+### Build process
+
+```bash
+# In packages/ui
+npm run build
+# Outputs to dist/ for use by consumers
+```
+
+## This documentation app
+
+The documentation app (this site) is built with **Docusaurus**, a static site generator optimized for documentation.
+
+### What it does
+
+- Consumes the `@frontend-design-system/ui` package locally during development
+- Provides component documentation and usage examples
+- Renders interactive component previews
+- Generates a static site for production
+
+### Development workflow
+
+```bash
+# At the repository root
+npm run dev
+# Starts the docs site with hot reload
+# The site consumes the local UI package
+```
+
+---
+
+**Next**: Learn how to install and use the design system in [Getting Started](/docs/getting-started).

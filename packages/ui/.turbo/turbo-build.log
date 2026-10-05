@@ -3,9 +3,9 @@
 > tsc && vite build
 
 [1G[0K[36mvite v8.3.2 [32mbuilding client environment for production...[36m[39m
-[2K[32m✓[0m 7 modules transformed.
+[2K[32m✓[0m 4 modules transformed.
 [2Krendering chunks (1)...[2Kcomputing gzip size...
-[2K[2mdist/[0m[36mindex.js  [0m[1;2m8.35 kB[0m[2m │ gzip: 2.99 kB[0m
+[2K[2mdist/[0m[36mindex.js  [0m[1;2m0.27 kB[0m[2m │ gzip: 0.21 kB[0m
 
-[32m✓ built in 23ms[39m
+[32m✓ built in 17ms[39m
 [1G[0K⠙[1G[0K

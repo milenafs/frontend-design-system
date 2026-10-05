@@ -1,0 +1,126 @@
+---
+slug: /components/input
+---
+
+import ComponentPreview from "@site/src/components/ComponentPreview";
+import { Input } from "@frontend-design-system/ui";
+
+# Input
+
+A text input component for collecting user text data with built-in support for labels, helper text, and validation states.
+
+## Overview
+
+The Input component provides a semantic wrapper around HTML's native `<input type="text">` element with support for different validation states and helper text.
+
+## Examples
+
+### Default Input
+
+<ComponentPreview code='<Input label="Email" placeholder="Enter your email" />'>
+  <Input label="Email" placeholder="Enter your email" />
+</ComponentPreview>
+
+### With Helper Text
+
+<ComponentPreview code='<Input label="Username" placeholder="Enter username" helperText="Username must be at least 3 characters" />'>
+  <Input label="Username" placeholder="Enter username" helperText="Username must be at least 3 characters" />
+</ComponentPreview>
+
+### Error State
+
+<ComponentPreview code='<Input variant="error" label="Email" value="invalid" helperText="Invalid email format" />'>
+  <Input variant="error" label="Email" value="invalid" helperText="Invalid email format" />
+</ComponentPreview>
+
+### Success State
+
+<ComponentPreview code='<Input variant="success" label="Username" value="john_doe" helperText="Username is available" />'>
+  <Input variant="success" label="Username" value="john_doe" helperText="Username is available" />
+</ComponentPreview>
+
+### Disabled State
+
+<ComponentPreview code='<Input label="Disabled" placeholder="This is disabled" disabled />'>
+  <Input label="Disabled" placeholder="This is disabled" disabled />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "error" \| "success"` | `"default"` | Visual style variant |
+| `label` | `string` | — | Label text |
+| `helperText` | `string` | — | Helper text below input |
+| `disabled` | `boolean` | — | Disable the input |
+| `placeholder` | `string` | — | Placeholder text |
+| `...props` | `InputHTMLAttributes` | — | All native input attributes |
+
+## Usage
+
+```tsx
+import { Input } from "@frontend-design-system/ui";
+
+export function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+    setError(""); // Clear error on input
+  };
+
+  return (
+    <Input
+      label="Email"
+      type="email"
+      value={email}
+      onChange={handleChange}
+      variant={error ? "error" : "default"}
+      helperText={error || "We'll never share your email"}
+    />
+  );
+}
+```
+
+## Styling
+
+The Input component renders with semantic HTML that you can style:
+
+```html
+<div data-variant="default">
+  <label>Email</label>
+  <input type="email" placeholder="..." />
+  <span>Helper text</span>
+</div>
+```
+
+Style using the data attributes:
+
+```css
+div[data-variant="default"] input {
+  /* Your styles */
+}
+
+div[data-variant="error"] input {
+  border-color: #ef4444;
+}
+
+div[data-variant="success"] input {
+  border-color: #10b981;
+}
+```
+
+Or import the pre-built component styles:
+
+```css
+@import "@frontend-design-system/ui/dist/components.css";
+```
+
+## Accessibility
+
+- Automatically associates labels with inputs using unique IDs
+- Supports `aria-label` and `aria-describedby` for unlabeled inputs
+- Helper text is semantically marked as `role="status"` for screen readers
+- Full keyboard support (Tab, Enter, etc.)
+- Visual focus indicators for keyboard navigation

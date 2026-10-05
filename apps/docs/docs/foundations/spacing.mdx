@@ -1,0 +1,144 @@
+---
+slug: /foundations/spacing
+---
+
+# Spacing & Layout
+
+Consistent spacing creates visual harmony and improves usability. The design system provides a modular spacing scale and layout tools.
+
+## Spacing Scale
+
+All spacing values are based on a 4px base unit, making it easy to create consistent layouts:
+
+| Token | Value | Use Case |
+|-------|-------|----------|
+| `--space-xs` | 4px | Tight spacing between small elements |
+| `--space-sm` | 8px | Padding in components, minimal gaps |
+| `--space-md` | 16px | Default spacing, component padding |
+| `--space-lg` | 24px | Section spacing, page padding |
+| `--space-xl` | 32px | Large section gaps |
+| `--space-2xl` | 48px | Major layout spacing |
+| `--space-3xl` | 64px | Page-level spacing |
+
+## Using Spacing
+
+### CSS Variables
+
+```css
+@import "@frontend-design-system/ui/dist/tokens.css";
+
+.card {
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.button {
+  padding: var(--space-sm) var(--space-md);
+}
+```
+
+### With the Stack Component
+
+The Stack component makes spacing consistent:
+
+```tsx
+import { Stack, Button } from "@frontend-design-system/ui";
+
+<Stack gap="md" direction="vertical">
+  <Button>Item 1</Button>
+  <Button>Item 2</Button>
+  <Button>Item 3</Button>
+</Stack>
+```
+
+## Border Radius
+
+Rounded corners provide visual consistency:
+
+| Token | Value | Use Case |
+|-------|-------|----------|
+| `--radius-none` | 0 | Square elements |
+| `--radius-sm` | 4px | Subtle rounding |
+| `--radius-md` | 8px | Default rounding (components) |
+| `--radius-lg` | 12px | Card containers |
+| `--radius-xl` | 16px | Large containers |
+| `--radius-full` | 9999px | Pills, badges |
+
+## Shadows
+
+Elevation through shadows creates depth and visual hierarchy:
+
+| Token | Size | Use Case |
+|-------|------|----------|
+| `--shadow-sm` | Small | Subtle elevation |
+| `--shadow-md` | Medium | Interactive elements |
+| `--shadow-lg` | Large | Modals, dropdowns |
+| `--shadow-xl` | Extra Large | High priority elements |
+
+### Usage
+
+```css
+.card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-md);
+}
+
+.button:hover {
+  box-shadow: var(--shadow-lg);
+}
+```
+
+## Responsive Spacing
+
+For responsive layouts, adjust spacing based on screen size:
+
+```css
+.section {
+  padding: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--space-xl);
+  }
+}
+```
+
+## Layout Patterns
+
+### Centered Container
+
+```css
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+```
+
+### Two Column Layout
+
+```css
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+## Whitespace as Design
+
+Generous whitespace improves readability and creates visual breathing room. Don't be afraid to use spacing to guide attention and hierarchy.

@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A semantic button component built on native HTML `<button>` elements.
+
+## Overview
+
+The Button component is a wrapper around the native HTML `<button>` element with support for variants and all standard button attributes. It maintains full semantic accessibility and keyboard support.
+
+## Examples
+
+### Primary Button
+
+<Canvas of={ButtonStories.Primary} />
+
+### Secondary Button
+
+<Canvas of={ButtonStories.Secondary} />
+
+### Disabled State
+
+<Canvas of={ButtonStories.Disabled} />
+
+### With Click Handler
+
+<Canvas of={ButtonStories.WithClickHandler} />
+
+## Props
+
+<Controls of={ButtonStories.Primary} />
+
+## Usage
+
+```tsx
+import { Button } from "@frontend-design-system/ui";
+
+<Button variant="primary">Primary Button</Button>
+<Button variant="secondary">Secondary Button</Button>
+<Button disabled>Disabled Button</Button>
+```
+
+## Accessibility
+
+The Button component maintains full semantic accessibility:
+
+- Built on native `<button>` elements with automatic keyboard support
+- Fully keyboard navigable (Tab, Enter, Space)
+- Announces correctly to screen readers as a button
+- Respects focus styles and tab order
+
+## Styling
+
+The Button component is **unstyled by default**. It renders a plain `<button>` element with a `data-variant` attribute:
+
+```html
+<button data-variant="primary">Button</button>
+```
+
+You can style the button using CSS by targeting `button[data-variant="..."]`.

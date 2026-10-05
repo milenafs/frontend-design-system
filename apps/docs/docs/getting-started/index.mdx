@@ -1,0 +1,50 @@
+---
+slug: /getting-started
+---
+
+# Getting Started
+
+Install the design system components in your project.
+
+## Installation
+
+```bash
+npm install @frontend-design-system/ui
+```
+
+## Usage
+
+Import components directly from the package:
+
+```tsx
+import { Button } from "@frontend-design-system/ui";
+
+export function MyComponent() {
+  return <Button>Click me</Button>;
+}
+```
+
+## Requirements
+
+The UI package requires **peer dependencies** to be installed in your project:
+
+```json
+{
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  }
+}
+```
+
+Ensure your project already has React and React DOM installed. These packages are **not** included in the UI package to avoid duplicate React instances.
+
+## In this documentation
+
+During development, this documentation app consumes the local UI package through npm workspaces. This allows us to develop components and see them reflected immediately in the documentation.
+
+When you build the documentation for production, the UI package build output is included, ensuring the docs and components stay in sync.
+
+---
+
+**Next**: Explore the [Button component](/docs/components/button).

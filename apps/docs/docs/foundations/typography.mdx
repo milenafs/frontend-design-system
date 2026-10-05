@@ -1,0 +1,102 @@
+---
+slug: /foundations/typography
+---
+
+# Typography
+
+The design system provides a consistent typographic scale that balances readability with visual hierarchy. All typography is defined using CSS custom properties for flexibility and maintainability.
+
+## Font Family
+
+The system uses the system font stack for optimal performance and native feel across platforms:
+
+```css
+--font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+  'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+  'Helvetica Neue', sans-serif;
+```
+
+This font stack provides:
+- Native look on macOS and iOS (San Francisco)
+- Native look on Windows (Segoe UI)
+- Roboto on Android
+- Fallbacks for other systems
+
+## Font Sizes
+
+| Token | Size | Use Case |
+|-------|------|----------|
+| `--font-size-xs` | 12px | Small text, captions, labels |
+| `--font-size-sm` | 14px | Helper text, form labels |
+| `--font-size-md` | 16px | Body text, paragraph content |
+| `--font-size-lg` | 18px | Subheadings, section titles |
+| `--font-size-xl` | 20px | Page headings |
+| `--font-size-2xl` | 24px | Major headings |
+| `--font-size-3xl` | 32px | Hero headlines |
+
+## Font Weights
+
+| Token | Weight | Use Case |
+|-------|--------|----------|
+| `--font-weight-light` | 300 | Decorative headers |
+| `--font-weight-normal` | 400 | Body text |
+| `--font-weight-medium` | 500 | Labels, buttons |
+| `--font-weight-semibold` | 600 | Subheadings |
+| `--font-weight-bold` | 700 | Headings |
+
+## Line Heights
+
+| Token | Value | Use Case |
+|-------|-------|----------|
+| `--line-height-tight` | 1.2 | Headings |
+| `--line-height-normal` | 1.5 | Body text (optimal for readability) |
+| `--line-height-relaxed` | 1.75 | Long-form content |
+
+## Typographic Scale
+
+```html
+<h1 style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">
+  Headline
+</h1>
+
+<h2 style="font-size: var(--font-size-2xl); font-weight: var(--font-weight-semibold);">
+  Subheading
+</h2>
+
+<p style="font-size: var(--font-size-md); line-height: var(--line-height-normal);">
+  Body text with optimal readability.
+</p>
+
+<small style="font-size: var(--font-size-sm); color: var(--color-gray-600);">
+  Helper text or captions
+</small>
+```
+
+## Usage
+
+Import the tokens file and use the CSS variables:
+
+```css
+@import "@frontend-design-system/ui/dist/tokens.css";
+
+.heading {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+```
+
+## Accessibility
+
+- Line height of at least 1.5 for body text ensures readability
+- Font size of at least 16px improves mobile readability and prevents auto-zoom
+- High contrast between text and background (WCAG AA standard)
+- Clear visual hierarchy helps users navigate content

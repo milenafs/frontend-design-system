@@ -1,0 +1,76 @@
+---
+slug: /foundations/colors
+---
+
+# Color Palette
+
+The design system uses a carefully curated color palette designed for accessibility and visual harmony. All colors are defined as CSS custom properties for easy theming and dynamic adjustments.
+
+## Primary Colors
+
+<div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+  <div style={{ background: '#0066cc', width: '80px', height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', textAlign: 'center' }}>
+    Primary<br/>#0066cc
+  </div>
+  <div style={{ background: '#0052a3', width: '80px', height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', textAlign: 'center' }}>
+    Primary Dark<br/>#0052a3
+  </div>
+  <div style={{ background: '#e6f0ff', width: '80px', height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0066cc', fontSize: '12px', textAlign: 'center' }}>
+    Primary Light<br/>#e6f0ff
+  </div>
+</div>
+
+## Semantic Colors
+
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Success | `#10b981` | Positive feedback, confirmations |
+| Error | `#ef4444` | Error messages, destructive actions |
+| Warning | `#f59e0b` | Warnings, caution messages |
+| Info | `#3b82f6` | Information, help text |
+
+## Neutral Grays
+
+The gray scale provides semantic meaning from light to dark:
+
+- **Gray 50-100**: Backgrounds, subtle elements
+- **Gray 200-400**: Borders, dividers, disabled states
+- **Gray 500-700**: Secondary text, muted content
+- **Gray 800-900**: Primary text, headings
+
+## CSS Variables
+
+```css
+/* Primary */
+--color-primary: #0066cc;
+--color-primary-dark: #0052a3;
+--color-primary-light: #e6f0ff;
+
+/* Semantic */
+--color-success: #10b981;
+--color-error: #ef4444;
+--color-warning: #f59e0b;
+--color-info: #3b82f6;
+
+/* Grays */
+--color-gray-50 through --color-gray-900;
+```
+
+## Usage
+
+Import the tokens file in your CSS to use these colors:
+
+```css
+@import "@frontend-design-system/ui/dist/tokens.css";
+
+.my-element {
+  color: var(--color-primary);
+  background-color: var(--color-gray-100);
+}
+```
+
+## Accessibility
+
+- All color combinations meet WCAG AA contrast requirements
+- Colors are not the only means of conveying information
+- Semantic colors (success, error, warning) are distinguishable by pattern or shape, not just color

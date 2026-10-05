@@ -1,0 +1,125 @@
+---
+slug: /components/checkbox
+---
+
+import ComponentPreview from "@site/src/components/ComponentPreview";
+import { Checkbox } from "@frontend-design-system/ui";
+
+# Checkbox
+
+A checkbox input component for binary selection with built-in label support and accessibility features.
+
+## Overview
+
+The Checkbox component wraps the native HTML `<input type="checkbox">` element with optional label support and full semantic accessibility.
+
+## Examples
+
+### Basic Checkbox
+
+<ComponentPreview code='<Checkbox label="I agree to the terms" />'>
+  <Checkbox label="I agree to the terms" />
+</ComponentPreview>
+
+### Checked State
+
+<ComponentPreview code='<Checkbox label="Subscribe to newsletter" defaultChecked />'>
+  <Checkbox label="Subscribe to newsletter" defaultChecked />
+</ComponentPreview>
+
+### Disabled
+
+<ComponentPreview code='<Checkbox label="Already completed" disabled defaultChecked />'>
+  <Checkbox label="Already completed" disabled defaultChecked />
+</ComponentPreview>
+
+### Without Label
+
+<ComponentPreview code='<Checkbox aria-label="Accept terms" />'>
+  <Checkbox aria-label="Accept terms" />
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Label text |
+| `checked` | `boolean` | — | Controlled checked state |
+| `defaultChecked` | `boolean` | — | Initial checked state |
+| `disabled` | `boolean` | — | Disable the checkbox |
+| `...props` | `InputHTMLAttributes` | — | All native input attributes |
+
+## Usage
+
+```tsx
+import { Checkbox } from "@frontend-design-system/ui";
+import { useState } from "react";
+
+export function SignupForm() {
+  const [terms, setTerms] = useState(false);
+  const [newsletter, setNewsletter] = useState(false);
+
+  return (
+    <div>
+      <Checkbox
+        label="I agree to the terms and conditions"
+        checked={terms}
+        onChange={(e) => setTerms(e.target.checked)}
+        required
+      />
+      <Checkbox
+        label="Subscribe to our newsletter"
+        checked={newsletter}
+        onChange={(e) => setNewsletter(e.target.checked)}
+      />
+    </div>
+  );
+}
+```
+
+## Styling
+
+The Checkbox component renders as a native checkbox with optional label:
+
+```html
+<div>
+  <input type="checkbox" id="checkbox-1" />
+  <label for="checkbox-1">Label text</label>
+</div>
+```
+
+Style using standard CSS selectors:
+
+```css
+input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  width: 20px;
+  height: 20px;
+}
+
+input[type="checkbox"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input[type="checkbox"] + label {
+  cursor: pointer;
+  user-select: none;
+  margin-left: 8px;
+}
+```
+
+Or import pre-built styles:
+
+```css
+@import "@frontend-design-system/ui/dist/components.css";
+```
+
+## Accessibility
+
+- Native HTML checkbox for full keyboard support
+- Automatic `<label>` association for click target expansion
+- Supports controlled and uncontrolled modes
+- Works with screen readers and keyboard navigation
+- Proper focus indicators
+- `aria-label` support when no text label is provided

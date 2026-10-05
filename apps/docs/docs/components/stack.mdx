@@ -1,0 +1,135 @@
+---
+slug: /components/stack
+---
+
+import ComponentPreview from "@site/src/components/ComponentPreview";
+import { Stack, Button } from "@frontend-design-system/ui";
+
+# Stack
+
+A flexible layout component for creating consistent spacing between elements using flexbox.
+
+## Overview
+
+The Stack component simplifies common layout patterns by handling alignment, spacing, and direction in a declarative way. It's perfect for building forms, button groups, navigation, and other layouts.
+
+## Examples
+
+### Vertical Stack
+
+<ComponentPreview code='<Stack gap="md" direction="vertical"><Button variant="primary">Item 1</Button><Button variant="primary">Item 2</Button><Button variant="primary">Item 3</Button></Stack>'>
+  <Stack gap="md" direction="vertical">
+    <Button variant="primary">Item 1</Button>
+    <Button variant="primary">Item 2</Button>
+    <Button variant="primary">Item 3</Button>
+  </Stack>
+</ComponentPreview>
+
+### Horizontal Stack
+
+<ComponentPreview code='<Stack gap="md" direction="horizontal"><Button variant="primary">Left</Button><Button variant="primary">Middle</Button><Button variant="primary">Right</Button></Stack>'>
+  <Stack gap="md" direction="horizontal">
+    <Button variant="primary">Left</Button>
+    <Button variant="primary">Middle</Button>
+    <Button variant="primary">Right</Button>
+  </Stack>
+</ComponentPreview>
+
+### With Space Between
+
+<ComponentPreview code='<Stack gap="md" direction="horizontal" justify="space-between" style={{ width: "100%" }}><Button variant="primary">Cancel</Button><Button variant="secondary">Submit</Button></Stack>'>
+  <Stack gap="md" direction="horizontal" justify="space-between" style={{ width: "100%" }}>
+    <Button variant="primary">Cancel</Button>
+    <Button variant="secondary">Submit</Button>
+  </Stack>
+</ComponentPreview>
+
+### Centered Content
+
+<ComponentPreview code='<Stack gap="md" direction="vertical" align="center"><div style={{ padding: "20px", background: "#e0e0e0", borderRadius: "8px" }}>Centered</div><div style={{ padding: "20px", background: "#e0e0e0", borderRadius: "8px" }}>Items</div></Stack>'>
+  <Stack gap="md" direction="vertical" align="center">
+    <div style={{ padding: "20px", background: "#e0e0e0", borderRadius: "8px" }}>Centered</div>
+    <div style={{ padding: "20px", background: "#e0e0e0", borderRadius: "8px" }}>Items</div>
+  </Stack>
+</ComponentPreview>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `direction` | `"horizontal" \| "vertical"` | `"vertical"` | Stack direction (flex-direction) |
+| `gap` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Spacing between items (4px, 8px, 16px, 24px, 32px) |
+| `align` | `"start" \| "center" \| "end" \| "stretch"` | `"stretch"` | Align items (align-items) |
+| `justify` | `"start" \| "center" \| "end" \| "space-between" \| "space-around"` | `"start"` | Justify content (justify-content) |
+| `children` | `ReactNode` | — | Stack contents |
+| `...props` | `HTMLAttributes` | — | All div attributes |
+
+## Usage
+
+```tsx
+import { Stack, Button, Input } from "@frontend-design-system/ui";
+
+export function LoginForm() {
+  return (
+    <Stack gap="lg" direction="vertical" style={{ maxWidth: "400px" }}>
+      <Input label="Email" type="email" />
+      <Input label="Password" type="password" />
+      
+      <Stack gap="md" direction="horizontal">
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="primary">Login</Button>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+## Common Patterns
+
+### Form Layout
+
+```tsx
+<Stack gap="lg" direction="vertical">
+  <Input label="First Name" />
+  <Input label="Last Name" />
+  <Input label="Email" type="email" />
+  
+  <Stack gap="md" direction="horizontal">
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="primary">Submit</Button>
+  </Stack>
+</Stack>
+```
+
+### Navigation
+
+```tsx
+<Stack gap="md" direction="horizontal" justify="space-between">
+  <div>Logo</div>
+  <Stack gap="md" direction="horizontal">
+    <Button>Home</Button>
+    <Button>About</Button>
+    <Button>Contact</Button>
+  </Stack>
+</Stack>
+```
+
+### Card Grid
+
+```tsx
+<Stack gap="lg" direction="vertical">
+  <Stack gap="md" direction="horizontal" style={{ flexWrap: "wrap" }}>
+    <Card>Item 1</Card>
+    <Card>Item 2</Card>
+    <Card>Item 3</Card>
+  </Stack>
+</Stack>
+```
+
+## Accessibility
+
+- Semantic HTML using native `<div>` elements
+- Flexbox for reliable layout across browsers
+- Proper focus management for interactive children
+- No visual or semantic barriers to keyboard navigation
+- Works with all assistive technologies

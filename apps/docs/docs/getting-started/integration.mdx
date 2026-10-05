@@ -1,0 +1,286 @@
+---
+slug: /getting-started/integration
+---
+
+# Integration Guide
+
+Learn how to integrate the Frontend Design System into your projects and set up the necessary styling.
+
+## Installation
+
+### Via npm Workspace (Monorepo)
+
+If your project is in the same monorepo, the package is already available:
+
+```bash
+npm install @frontend-design-system/ui
+```
+
+Or import directly from the workspace:
+
+```tsx
+import { Button, Input, Stack } from "@frontend-design-system/ui";
+```
+
+### Via npm Registry
+
+When published to npm:
+
+```bash
+npm install @frontend-design-system/ui
+```
+
+## Setup
+
+### 1. Import Tokens and Styles
+
+Add the following to your main CSS or app entry point:
+
+```css
+/* tokens.css provides design token CSS custom properties */
+@import "@frontend-design-system/ui/dist/tokens.css";
+
+/* components.css provides pre-built component styles */
+@import "@frontend-design-system/ui/dist/components.css";
+```
+
+Or import as a side effect in your main app file:
+
+```tsx
+import "@frontend-design-system/ui/dist/tokens.css";
+import "@frontend-design-system/ui/dist/components.css";
+
+import { Button } from "@frontend-design-system/ui";
+
+export default function App() {
+  return <Button>Click me</Button>;
+}
+```
+
+### 2. (Optional) Customize Tokens
+
+Override design tokens in your app's CSS:
+
+```css
+:root {
+  /* Override primary color */
+  --color-primary: #your-color;
+  --color-primary-dark: #your-dark-color;
+  --color-primary-light: #your-light-color;
+
+  /* Override spacing scale */
+  --space-md: 20px; /* Instead of 16px */
+}
+```
+
+## Usage Examples
+
+### Button
+
+```tsx
+import { Button } from "@frontend-design-system/ui";
+
+export function MyComponent() {
+  return (
+    <>
+      <Button variant="primary" onClick={() => alert("Clicked!")}>
+        Primary Button
+      </Button>
+      <Button variant="secondary">Secondary Button</Button>
+      <Button disabled>Disabled Button</Button>
+    </>
+  );
+}
+```
+
+### Input
+
+```tsx
+import { Input } from "@frontend-design-system/ui";
+import { useState } from "react";
+
+export function Form() {
+  const [email, setEmail] = useState("");
+
+  return (
+    <Input
+      label="Email Address"
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      placeholder="your@email.com"
+      helperText="We'll never share your email"
+    />
+  );
+}
+```
+
+### Checkbox
+
+```tsx
+import { Checkbox } from "@frontend-design-system/ui";
+import { useState } from "react";
+
+export function Preferences() {
+  const [newsletter, setNewsletter] = useState(false);
+
+  return (
+    <Checkbox
+      label="Subscribe to newsletter"
+      checked={newsletter}
+      onChange={(e) => setNewsletter(e.target.checked)}
+    />
+  );
+}
+```
+
+### Stack Layout
+
+```tsx
+import { Stack, Button, Input } from "@frontend-design-system/ui";
+
+export function LoginForm() {
+  return (
+    <Stack gap="lg" direction="vertical" style={{ maxWidth: "400px" }}>
+      <h1>Login</h1>
+      
+      <Input label="Email" type="email" />
+      <Input label="Password" type="password" />
+      
+      <Stack gap="md" direction="horizontal">
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="primary">Login</Button>
+      </Stack>
+    </Stack>
+  );
+}
+```
+
+## Styling Your Components
+
+### Using CSS Modules
+
+```css
+/* mycomponent.module.css */
+.container {
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+```
+
+```tsx
+import styles from "./mycomponent.module.css";
+
+export function MyComponent() {
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>Title</h1>
+    </div>
+  );
+}
+```
+
+### Using CSS-in-JS
+
+```tsx
+export function MyComponent() {
+  return (
+    <div
+      style={{
+        padding: "var(--space-lg)",
+        borderRadius: "var(--radius-md)",
+        boxShadow: "var(--shadow-md)",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "var(--font-size-2xl)",
+          fontWeight: "var(--font-weight-bold)",
+          color: "var(--color-primary)",
+        }}
+      >
+        Title
+      </h1>
+    </div>
+  );
+}
+```
+
+### Using Tailwind CSS
+
+If using Tailwind, you can reference the token values or create Tailwind plugins:
+
+```tsx
+export function MyComponent() {
+  return (
+    <div className="p-lg rounded-md shadow-md">
+      <h1 className="text-2xl font-bold text-primary">Title</h1>
+    </div>
+  );
+}
+```
+
+## TypeScript Support
+
+All components are fully typed:
+
+```tsx
+import { Button, ButtonProps } from "@frontend-design-system/ui";
+
+// Props are automatically typed
+const MyButton: React.FC<ButtonProps> = (props) => {
+  return <Button {...props} />;
+};
+```
+
+## Troubleshooting
+
+### Styles Not Applied
+
+Ensure you've imported the CSS files:
+
+```tsx
+import "@frontend-design-system/ui/dist/tokens.css";
+import "@frontend-design-system/ui/dist/components.css";
+```
+
+### Buttons Look Unstyled
+
+The component library ships with minimal base styles. Import `components.css` for the default theme, or create your own styles.
+
+### Custom Styling Conflicts
+
+Components use simple `data-` attributes for styling. Check for CSS specificity conflicts:
+
+```css
+/* Your styles have higher specificity */
+div button {
+  color: red; /* This might override component styles */
+}
+
+/* Use data attributes for higher specificity */
+button[data-variant="primary"] {
+  color: white;
+}
+```
+
+## Performance
+
+- Components are tree-shakeable and bundled as ES modules
+- Only import what you use
+- CSS is split into `tokens.css` (design tokens) and `components.css` (component styles)
+- Import selectively to minimize CSS bundle size
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- ES2020+
+- CSS Custom Properties support required
+- Flexbox support required for Stack component
