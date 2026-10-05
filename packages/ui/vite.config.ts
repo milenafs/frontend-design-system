@@ -7,6 +7,7 @@ export default defineConfig({
 
   build: {
     emptyOutDir: false,
+    target: "esnext",
 
     lib: {
       entry: "src/index.ts",
@@ -15,7 +16,16 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: (id) => {
+        return id === "react" || id === "react-dom" || id.startsWith("react/");
+      },
+      output: {
+        format: "es",
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
   },
 });
