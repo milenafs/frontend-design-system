@@ -1,0 +1,28 @@
+# Development
+src/
+.storybook/
+stories/
+
+# Build
+.turbo/
+*.tsbuildinfo
+
+# Config
+tsconfig.json
+vite.config.ts
+.oxlintrc.json
+
+# CI/CD
+.github/
+.gitignore
+
+# Docs
+README.md
+
+# Node
+node_modules/
+npm-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
