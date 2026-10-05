@@ -13,6 +13,8 @@ storybook-static/
 
 # Turbo
 .turbo/
+.turborc
+.turborc.json
 
 # Environment
 .env
