@@ -34,12 +34,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Vertical: Story = {
-  args: {
-    direction: 'vertical',
-    gap: 'md',
-  },
-  render: (args) => (
-    <Stack {...args}>
+  args: {} as any,
+  render: () => (
+    <Stack direction="vertical" gap="md">
       <Button variant="primary">Item 1</Button>
       <Button variant="primary">Item 2</Button>
       <Button variant="primary">Item 3</Button>
@@ -48,12 +45,9 @@ export const Vertical: Story = {
 };
 
 export const Horizontal: Story = {
-  args: {
-    direction: 'horizontal',
-    gap: 'md',
-  },
-  render: (args) => (
-    <Stack {...args}>
+  args: {} as any,
+  render: () => (
+    <Stack direction="horizontal" gap="md">
       <Button variant="primary">Item 1</Button>
       <Button variant="primary">Item 2</Button>
       <Button variant="primary">Item 3</Button>
@@ -62,13 +56,9 @@ export const Horizontal: Story = {
 };
 
 export const SpaceBetween: Story = {
-  args: {
-    direction: 'horizontal',
-    gap: 'md',
-    justify: 'space-between',
-  },
-  render: (args) => (
-    <Stack {...args} style={{ width: '100%' }}>
+  args: {} as any,
+  render: () => (
+    <Stack direction="horizontal" gap="md" justify="space-between" style={{ width: '100%' }}>
       <Button variant="primary">Left</Button>
       <Button variant="secondary">Right</Button>
     </Stack>
@@ -76,12 +66,9 @@ export const SpaceBetween: Story = {
 };
 
 export const LargeGap: Story = {
-  args: {
-    direction: 'vertical',
-    gap: 'lg',
-  },
-  render: (args) => (
-    <Stack {...args}>
+  args: {} as any,
+  render: () => (
+    <Stack direction="vertical" gap="lg">
       <div style={{ padding: '20px', background: '#e0e0e0' }}>Box 1</div>
       <div style={{ padding: '20px', background: '#e0e0e0' }}>Box 2</div>
       <div style={{ padding: '20px', background: '#e0e0e0' }}>Box 3</div>
@@ -90,13 +77,9 @@ export const LargeGap: Story = {
 };
 
 export const CenterAligned: Story = {
-  args: {
-    direction: 'vertical',
-    gap: 'md',
-    align: 'center',
-  },
-  render: (args) => (
-    <Stack {...args}>
+  args: {} as any,
+  render: () => (
+    <Stack direction="vertical" gap="md" align="center">
       <Button variant="primary">Centered</Button>
       <Button variant="primary">Items</Button>
     </Stack>
