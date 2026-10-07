@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Frontend Design System',
+  title: 'Milfushi Design System',
   tagline: 'Reusable React components and foundations for building consistent interfaces',
   favicon: 'img/favicon.ico',
 
@@ -48,9 +48,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Frontend Design System',
+      title: 'Milfushi Design System',
       logo: {
-        alt: 'Frontend Design System',
+        alt: 'Milfushi Design System',
         src: 'img/logo.svg',
       },
       items: [
@@ -83,7 +83,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Frontend Design System. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Milfushi Design System. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,5 +1,5 @@
 {
-  "name": "frontend-design-system",
+  "name": "milfushi-design-system",
   "packageManager": "npm@11.4.1",
   "private": true,
   "workspaces": [

@@ -1,10 +1,10 @@
-# Frontend Design System
+# Milfushi Design System
 
 A production-ready React component library and design system built with TypeScript, Vite, and Turborepo. Includes a complete documentation site and interactive component showcase.
 
 ## Overview
 
-The Frontend Design System is a monorepo containing:
+The Milfushi Design System is a monorepo containing:
 
 - **UI Package** (`packages/ui`) - Production-ready React components with TypeScript support, Storybook stories, and design tokens
 - **Documentation Site** (`apps/docs`) - Docusaurus-powered documentation with live component examples and integration guides
@@ -235,27 +235,27 @@ Runs Vitest for the Storybook component tests.
 If in the same monorepo, the package is automatically available:
 
 ```bash
-npm install @frontend-design-system/ui
+npm install @milfushi-design-system/ui
 ```
 
 ### Import Components
 
 ```tsx
-import { Button, Input, Checkbox, Stack } from "@frontend-design-system/ui";
+import { Button, Input, Checkbox, Stack } from "@milfushi-design-system/ui";
 ```
 
 ### Import Styles
 
 ```tsx
 // In your main app file or CSS
-import "@frontend-design-system/ui/dist/tokens.css";
-import "@frontend-design-system/ui/dist/components.css";
+import "@milfushi-design-system/ui/dist/tokens.css";
+import "@milfushi-design-system/ui/dist/components.css";
 ```
 
 ### Basic Usage
 
 ```tsx
-import { Button, Input, Stack } from "@frontend-design-system/ui";
+import { Button, Input, Stack } from "@milfushi-design-system/ui";
 
 export function LoginForm() {
   return (
@@ -494,8 +494,8 @@ Add your own CSS variables before importing component styles:
   --color-brand: #custom-color;
 }
 
-@import "@frontend-design-system/ui/dist/tokens.css";
-@import "@frontend-design-system/ui/dist/components.css";
+@import "@milfushi-design-system/ui/dist/tokens.css";
+@import "@milfushi-design-system/ui/dist/components.css";
 ```
 
 ### Custom Component Styles
@@ -515,7 +515,7 @@ div[data-variant="error"] input {
 ### Create Component Variants
 
 ```tsx
-import { Button, type ButtonProps } from "@frontend-design-system/ui";
+import { Button, type ButtonProps } from "@milfushi-design-system/ui";
 
 interface PrimaryButtonProps extends ButtonProps {
   size?: "sm" | "md" | "lg";
@@ -570,7 +570,7 @@ Run `npm run storybook --workspace=packages/ui` and visit http://localhost:6006
 All components are fully typed with JSDoc comments:
 
 ```tsx
-import { Button, type ButtonProps } from "@frontend-design-system/ui";
+import { Button, type ButtonProps } from "@milfushi-design-system/ui";
 
 // Full type support in your IDE
 const MyButton: React.FC<ButtonProps> = (props) => {
@@ -663,8 +663,8 @@ export function MyComponent({
 Ensure you've imported both token and component CSS:
 
 ```tsx
-import "@frontend-design-system/ui/dist/tokens.css";
-import "@frontend-design-system/ui/dist/components.css";
+import "@milfushi-design-system/ui/dist/tokens.css";
+import "@milfushi-design-system/ui/dist/components.css";
 ```
 
 ### TypeScript Errors
@@ -672,7 +672,7 @@ import "@frontend-design-system/ui/dist/components.css";
 Make sure types are imported:
 
 ```tsx
-import { Button, type ButtonProps } from "@frontend-design-system/ui";
+import { Button, type ButtonProps } from "@milfushi-design-system/ui";
 ```
 
 ### Build Errors

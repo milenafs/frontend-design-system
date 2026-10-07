@@ -1,6 +1,6 @@
 # Publishing Guide
 
-This guide explains how to publish the `@frontend-design-system/ui` package to npm.
+This guide explains how to publish the `@milfushi-design-system/ui` package to npm.
 
 ## Prerequisites
 
@@ -114,10 +114,10 @@ After publishing, verify the package:
 
 ```bash
 # Check npm registry
-npm info @frontend-design-system/ui
+npm info @milfushi-design-system/ui
 
 # Install in a test project
-npm install @frontend-design-system/ui@latest
+npm install @milfushi-design-system/ui@latest
 ```
 
 ## Troubleshooting
@@ -136,14 +136,14 @@ npm install @frontend-design-system/ui@latest
 - Recreate the token
 - Update the GitHub secret
 
-### "Not found: @frontend-design-system/ui"
+### "Not found: @milfushi-design-system/ui"
 - Check that you're publishing the correct package
 - Make sure `name` in `packages/ui/package.json` is correct
 
 ## What Gets Published
 
 ```
-@frontend-design-system/ui@1.0.0
+@milfushi-design-system/ui@1.0.0
 ├── dist/
 │   ├── index.js           # ES Module bundle
 │   ├── index.d.ts         # TypeScript types
@@ -167,9 +167,9 @@ The GitHub Actions workflow runs:
 
 Once published, your package is available at:
 
-- **npm registry**: https://www.npmjs.com/package/@frontend-design-system/ui
-- **Unpkg CDN**: https://unpkg.com/@frontend-design-system/ui@latest/dist/
-- **JSDelivr CDN**: https://cdn.jsdelivr.net/npm/@frontend-design-system/ui@latest/dist/
+- **npm registry**: https://www.npmjs.com/package/@milfushi-design-system/ui
+- **Unpkg CDN**: https://unpkg.com/@milfushi-design-system/ui@latest/dist/
+- **JSDelivr CDN**: https://cdn.jsdelivr.net/npm/@milfushi-design-system/ui@latest/dist/
 
 ## Testing Before Publishing
 

@@ -13,13 +13,13 @@ Learn how to integrate the Frontend Design System into your projects and set up 
 If your project is in the same monorepo, the package is already available:
 
 ```bash
-npm install @frontend-design-system/ui
+npm install @milfushi-design-system/ui
 ```
 
 Or import directly from the workspace:
 
 ```tsx
-import { Button, Input, Stack } from "@frontend-design-system/ui";
+import { Button, Input, Stack } from "@milfushi-design-system/ui";
 ```
 
 ### Via npm Registry
@@ -27,7 +27,7 @@ import { Button, Input, Stack } from "@frontend-design-system/ui";
 When published to npm:
 
 ```bash
-npm install @frontend-design-system/ui
+npm install @milfushi-design-system/ui
 ```
 
 ## Setup
@@ -38,19 +38,19 @@ Add the following to your main CSS or app entry point:
 
 ```css
 /* tokens.css provides design token CSS custom properties */
-@import "@frontend-design-system/ui/dist/tokens.css";
+@import "@milfushi-design-system/ui/dist/tokens.css";
 
 /* components.css provides pre-built component styles */
-@import "@frontend-design-system/ui/dist/components.css";
+@import "@milfushi-design-system/ui/dist/components.css";
 ```
 
 Or import as a side effect in your main app file:
 
 ```tsx
-import "@frontend-design-system/ui/dist/tokens.css";
-import "@frontend-design-system/ui/dist/components.css";
+import "@milfushi-design-system/ui/dist/tokens.css";
+import "@milfushi-design-system/ui/dist/components.css";
 
-import { Button } from "@frontend-design-system/ui";
+import { Button } from "@milfushi-design-system/ui";
 
 export default function App() {
   return <Button>Click me</Button>;
@@ -78,7 +78,7 @@ Override design tokens in your app's CSS:
 ### Button
 
 ```tsx
-import { Button } from "@frontend-design-system/ui";
+import { Button } from "@milfushi-design-system/ui";
 
 export function MyComponent() {
   return (
@@ -96,7 +96,7 @@ export function MyComponent() {
 ### Input
 
 ```tsx
-import { Input } from "@frontend-design-system/ui";
+import { Input } from "@milfushi-design-system/ui";
 import { useState } from "react";
 
 export function Form() {
@@ -118,7 +118,7 @@ export function Form() {
 ### Checkbox
 
 ```tsx
-import { Checkbox } from "@frontend-design-system/ui";
+import { Checkbox } from "@milfushi-design-system/ui";
 import { useState } from "react";
 
 export function Preferences() {
@@ -137,7 +137,7 @@ export function Preferences() {
 ### Stack Layout
 
 ```tsx
-import { Stack, Button, Input } from "@frontend-design-system/ui";
+import { Stack, Button, Input } from "@milfushi-design-system/ui";
 
 export function LoginForm() {
   return (
@@ -232,7 +232,7 @@ export function MyComponent() {
 All components are fully typed:
 
 ```tsx
-import { Button, ButtonProps } from "@frontend-design-system/ui";
+import { Button, ButtonProps } from "@milfushi-design-system/ui";
 
 // Props are automatically typed
 const MyButton: React.FC<ButtonProps> = (props) => {
@@ -247,8 +247,8 @@ const MyButton: React.FC<ButtonProps> = (props) => {
 Ensure you've imported the CSS files:
 
 ```tsx
-import "@frontend-design-system/ui/dist/tokens.css";
-import "@frontend-design-system/ui/dist/components.css";
+import "@milfushi-design-system/ui/dist/tokens.css";
+import "@milfushi-design-system/ui/dist/components.css";
 ```
 
 ### Buttons Look Unstyled
