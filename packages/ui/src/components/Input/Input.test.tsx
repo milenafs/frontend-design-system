@@ -46,4 +46,21 @@ describe('Input', () => {
     const input = screen.getByRole('textbox');
     expect(input).toBeDisabled();
   });
+
+  it('keeps the label association stable across re-renders', () => {
+    const { rerender } = render(<Input label="Email" />);
+    const firstId = screen.getByLabelText('Email').id;
+
+    rerender(<Input label="Email" />);
+
+    expect(screen.getByLabelText('Email').id).toBe(firstId);
+  });
+
+  it('exposes helper text as the input description', () => {
+    render(<Input label="Email" helperText="We never share it" />);
+
+    expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+      'We never share it',
+    );
+  });
 });

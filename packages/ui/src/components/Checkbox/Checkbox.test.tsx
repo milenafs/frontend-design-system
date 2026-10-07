@@ -43,4 +43,13 @@ describe('Checkbox', () => {
     await user.click(screen.getByRole('checkbox'));
     expect(handleChange).toHaveBeenCalled();
   });
+
+  it('keeps the label association stable across re-renders', () => {
+    const { rerender } = render(<Checkbox label="Accept" />);
+    const firstId = screen.getByLabelText('Accept').id;
+
+    rerender(<Checkbox label="Accept" />);
+
+    expect(screen.getByLabelText('Accept').id).toBe(firstId);
+  });
 });

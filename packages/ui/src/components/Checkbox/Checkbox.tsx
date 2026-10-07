@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from "react";
+import { useId, type InputHTMLAttributes } from "react";
 
 /**
  * Props for the Checkbox component
@@ -30,7 +30,8 @@ export function Checkbox({
   id,
   ...props
 }: CheckboxProps) {
-  const checkboxId = id || `checkbox-${Math.random()}`;
+  const generatedId = useId();
+  const checkboxId = id ?? generatedId;
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from "react";
+import { useId, type InputHTMLAttributes } from "react";
 
 /**
  * Props for the Input component
@@ -41,13 +41,20 @@ export function Input({
   id,
   ...props
 }: InputProps) {
-  const inputId = id || `input-${Math.random()}`;
+  const generatedId = useId();
+  const inputId = id ?? generatedId;
+  const helperTextId = `${inputId}-helper`;
 
   return (
     <div data-variant={variant}>
       {label && <label htmlFor={inputId}>{label}</label>}
-      <input id={inputId} data-variant={variant} {...props} />
-      {helperText && <span role="status">{helperText}</span>}
+      <input
+        id={inputId}
+        data-variant={variant}
+        aria-describedby={helperText ? helperTextId : undefined}
+        {...props}
+      />
+      {helperText && <span id={helperTextId}>{helperText}</span>}
     </div>
   );
 }
