@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Stack, Button } from '@frontend-design-system/ui';
+import { Stack, Button } from '@milfushi-design-system/ui';
 
 const meta = {
   title: 'Components/Stack',

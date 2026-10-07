@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Checkbox } from '@frontend-design-system/ui';
+import { Checkbox } from '@milfushi-design-system/ui';
 
 const meta = {
   title: 'Components/Checkbox',

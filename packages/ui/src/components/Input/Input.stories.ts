@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Input } from '@frontend-design-system/ui';
+import { Input } from '@milfushi-design-system/ui';
 
 const meta = {
   title: 'Components/Input',
