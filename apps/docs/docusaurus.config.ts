@@ -14,8 +14,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'http://localhost:3000',
-  baseUrl: '/',
+  url: 'https://milenafs.github.io',
+  baseUrl: '/milfushi-design-system/',
 
   onBrokenLinks: 'throw',
 
