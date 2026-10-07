@@ -11,14 +11,11 @@
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "noEmit": false,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "rootDir": "src",
-    "outDir": "dist",
+    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": ["src", "vite.config.ts"],
+  "exclude": ["src/**/*.stories.*"]
 }
