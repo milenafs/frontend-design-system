@@ -28,6 +28,12 @@ const sidebars: SidebarsConfig = {
       label: 'Components',
       items: [
         'components/button',
+        // AUTO-GENERATED COMPONENTS START
+        'components/auto-generated/button',
+        'components/auto-generated/checkbox',
+        'components/auto-generated/input',
+        'components/auto-generated/stack',
+    // AUTO-GENERATED COMPONENTS END
       ],
     },
   ],
