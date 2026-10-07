@@ -235,27 +235,27 @@ Runs Vitest for the Storybook component tests.
 If in the same monorepo, the package is automatically available:
 
 ```bash
-npm install @milfushi-design-system/ui
+npm install @milfushi/ui
 ```
 
 ### Import Components
 
 ```tsx
-import { Button, Input, Checkbox, Stack } from "@milfushi-design-system/ui";
+import { Button, Input, Checkbox, Stack } from "@milfushi/ui";
 ```
 
 ### Import Styles
 
 ```tsx
 // In your main app file or CSS
-import "@milfushi-design-system/ui/dist/tokens.css";
-import "@milfushi-design-system/ui/dist/components.css";
+import "@milfushi/ui/dist/tokens.css";
+import "@milfushi/ui/dist/components.css";
 ```
 
 ### Basic Usage
 
 ```tsx
-import { Button, Input, Stack } from "@milfushi-design-system/ui";
+import { Button, Input, Stack } from "@milfushi/ui";
 
 export function LoginForm() {
   return (
@@ -494,8 +494,8 @@ Add your own CSS variables before importing component styles:
   --color-brand: #custom-color;
 }
 
-@import "@milfushi-design-system/ui/dist/tokens.css";
-@import "@milfushi-design-system/ui/dist/components.css";
+@import "@milfushi/ui/dist/tokens.css";
+@import "@milfushi/ui/dist/components.css";
 ```
 
 ### Custom Component Styles
@@ -515,7 +515,7 @@ div[data-variant="error"] input {
 ### Create Component Variants
 
 ```tsx
-import { Button, type ButtonProps } from "@milfushi-design-system/ui";
+import { Button, type ButtonProps } from "@milfushi/ui";
 
 interface PrimaryButtonProps extends ButtonProps {
   size?: "sm" | "md" | "lg";
@@ -570,7 +570,7 @@ Run `npm run storybook --workspace=packages/ui` and visit http://localhost:6006
 All components are fully typed with JSDoc comments:
 
 ```tsx
-import { Button, type ButtonProps } from "@milfushi-design-system/ui";
+import { Button, type ButtonProps } from "@milfushi/ui";
 
 // Full type support in your IDE
 const MyButton: React.FC<ButtonProps> = (props) => {
@@ -663,8 +663,8 @@ export function MyComponent({
 Ensure you've imported both token and component CSS:
 
 ```tsx
-import "@milfushi-design-system/ui/dist/tokens.css";
-import "@milfushi-design-system/ui/dist/components.css";
+import "@milfushi/ui/dist/tokens.css";
+import "@milfushi/ui/dist/components.css";
 ```
 
 ### TypeScript Errors
@@ -672,7 +672,7 @@ import "@milfushi-design-system/ui/dist/components.css";
 Make sure types are imported:
 
 ```tsx
-import { Button, type ButtonProps } from "@milfushi-design-system/ui";
+import { Button, type ButtonProps } from "@milfushi/ui";
 ```
 
 ### Build Errors

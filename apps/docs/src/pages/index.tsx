@@ -4,7 +4,7 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
-import { Button } from "@milfushi-design-system/ui";
+import { Button } from "@milfushi/ui";
 
 import styles from "./index.module.css";
 
