@@ -24,9 +24,8 @@
     "src",
     "vitest.setup.ts",
     "vitest.config.ts",
-    "vite.config.ts"
-  ],
-  "exclude": [
-    "src/**/*.stories.*"
+    "vite.config.ts",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
   ]
 }
