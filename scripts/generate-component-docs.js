@@ -87,7 +87,7 @@ function generateMarkdown(componentName, description, props, examples = []) {
 
   if (examples.length > 0) {
     markdown += `## Examples\n\n`;
-    examples.forEach((example, idx) => {
+    examples.forEach((example) => {
       markdown += `${example}\n\n`;
     });
   }
